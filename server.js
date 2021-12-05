@@ -3,15 +3,18 @@ let reload = require('reload')
 let http = require('http')
 
 let app = express()
-let port = 3000
 
 
+
+app.set('port',process.env.PORT || 3000)
 app.get('/', (req, res) => {
-  res.send('hello world')
+  res.send('hello ')
 })
 
 let server = http.createServer(app)
 
 reload(app).then((reloadReturned) => {
-  server.listen(port)
+  server.listen(app.get('port'), () => {
+    console.log(`port:${app.get('port')}`);
+  })
 }).catch()　
