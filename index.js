@@ -2,15 +2,15 @@ const express = require('express')
 const reload = require('reload')
 const http = require('http')
 
-const app = express()
+let app = express()
 const port = 3000
 
 
 app.get('/', (req, res) => {
-  res.send('hello world')
+  res.send('hello ww')
 })
 
-const server = http.createServer(app)
+let server = http.createServer(app)
 
 reload(app).then((reloadReturned) => {
   server.listen(port, () => {
