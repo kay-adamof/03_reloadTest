@@ -13,9 +13,5 @@ app.get('/', (req, res) => {
 let server = http.createServer(app)
 
 reload(app).then((reloadReturned) => {
-  server.listen(port, () => {
-    console.log(`Web server listening on port ${port}`);
-  })
-}).catch((err) => {
-  console.error('Reload could not start, could not start server/sample.app', err);
-})
+  server.listen(port)
+}).catch()　
