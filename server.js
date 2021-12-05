@@ -1,6 +1,6 @@
-const express = require('express')
-const reload = require('reload')
-const http = require('http')
+let express = require('express')
+let reload = require('reload')
+let http = require('http')
 
 let app = express()
 let port = 3000
