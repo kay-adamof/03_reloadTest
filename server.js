@@ -8,13 +8,14 @@ let app = express()
 
 app.set('port',process.env.PORT || 3000)
 app.get('/', (req, res) => {
-  res.send('hello world')
+  res.sendFile("index.html")
 })
+app.listen(3000)
 
-let server = http.createServer(app)
+// let server = http.createServer(app)
 
-reload(app).then((reloadReturned) => {
-  server.listen(app.get('port'), () => {
-    console.log(`port:${app.get('port')}`);
-  })
-}).catch()　
+// reload(app).then((reloadReturned) => {
+//   server.listen(app.get('port'), () => {
+//     console.log(`port:${app.get('port')}`);
+//   })
+// }).catch()　
