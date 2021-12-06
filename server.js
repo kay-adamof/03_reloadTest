@@ -1,23 +1,18 @@
+//  Import Express : A web framework of nodejs
 let express = require('express')
+// Import reload : Automatic browser reloader.
 let reload = require('reload')
-let http = require('http')
 
+// Create app
 let app = express()
 
-
-
-app.set('port',process.env.PORT || 3000)
+// If user send URL in browse, return "index.html".
 app.get('/', (req, res) => {
   res.sendFile("index.html", {root: __dirname})
 })
 
+// Connect app with browse by using port:3000
+app.listen(3000)
 
-let server = http.createServer(app)
-
-reload(app).then((reloadReturned) => {
-  server.listen(app.get('port'), () => {
-    console.log(`port:${app.get('port')}`);
-  })
-}).catch((err) => {
-  console.error('Reload could not start');
-})
+// Browser will reload, if the server is refresed by supervisor
+reload(app)
